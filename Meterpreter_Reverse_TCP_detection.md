@@ -11,7 +11,7 @@ The objective of this project is to compromise a Windows 10 machine and detect t
 - Sysmon
 
 ## Attack Simulation
-Payload: `windows/meterpreter/reverse_tcp`
+Payload: `windows/meterpreter/reverse_tcp` \
 Tools used: `msfvenom`, `msfconsole`
 
 Steps taken:
