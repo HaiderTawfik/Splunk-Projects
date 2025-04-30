@@ -5,10 +5,10 @@ This project simulates an attack using the `meterpreter_reverse_tcp` payload gen
 The objective of this project is to compromise a Windows 10 machine and detect the attack using Sysmon and Splunk
 
 ## Tools used
-- Kali Linux (attacker machine)
-- Windows 10 (victim machine)
-- Splunk
-- Sysmon
+- **Kali Linux** (attacker machine)
+- **Windows 10** (victim machine)
+- **Splunk**
+- **Sysmon**
 
 ## Attack Simulation
 Payload: `windows/meterpreter/reverse_tcp` \
@@ -32,7 +32,9 @@ Tools used: Metasploit framework (`msfvenom`, `msfconsole`)
    ```
 
 ## Detection
-Using EventCode=3 detected a unusual network connection from `<attacker IP address>` to port `<3389> (RDP)`. \
+Tools used: Sysmon, Splunk
+### Initial Detection: Unusual Network Connection
+Looking at Sysmon log data with EventCode=3 there was an unusual network connection from `<attacker IP address>` to port `<3389> (RDP)`. Indicating a Potential compromise\
 Looking at more log evidence using the query of: \
  `index=sysmon EventCode=3 <attacker IP address>` \
 A log entry is found where: \
