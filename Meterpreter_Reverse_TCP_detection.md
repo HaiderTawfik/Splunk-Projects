@@ -69,6 +69,8 @@ An event is found where:
 
 ![Image showing suspicious file](images/Splunk_Meterpreter_Process.png)
 
+From the above we can see
+
 ```bash
 DestinationIp: <attacker IP address>
 sourceIp: <victim IP address>
@@ -94,5 +96,7 @@ index=sysmon process_guid = <process_guid>
 ```
 
 From the above query we get the resut:
-![Image showing what commands executed](images/Splunk_Meterpreter_Commands_Exec_part_1.png) ![Image part 2](images/Splunk_Meterpreter_Commands_Exec_part_2.png)
+![Image showing what commands executed](images/Splunk_Meterpreter_Commands_Exec_part_1.png) 
+![Image part 2](images/Splunk_Meterpreter_Commands_Exec_part_2.png)\
+
 Through this image resulting from using the process_guid it is discovered that this process executed commands such as whoami, ipconfig, net localgroup, net user.
