@@ -62,7 +62,7 @@ Looking at event data with EventCode=3 there was an unusual network connection f
 Looking at more events using the spl query of:
 
 ```bash
- index=sysmon EventCode=3 <attacker IP address>
+ index=endpoint EventCode=3 <attacker IP address>
 ```
 
 An event is found where:
@@ -82,7 +82,7 @@ Indicating a network connection initiated by an unusual executable file from the
 Using the query of:
 
 ```bash
-index=sysmon EventCode=1 expenses.pdf.exe
+index=endpoint EventCode=1 expenses.pdf.exe
 ```
 
 ![shell spawned from expenses](images/Splunk_Meterpreter_Spawn_Shell.png)
@@ -91,7 +91,7 @@ An event indicating cmd.exe was created from the parent process of `expenses.pdf
 From this we can take the process guid to find what commands have been executed by the shell
 
 ```bash
-index=sysmon process_guid = <process_guid>
+index=endpoint process_guid = <process_guid>
 | table _time, ParentImage,  Image, CommandLine
 ```
 
